@@ -4,6 +4,7 @@ import org.dsa.service.Deque;
 import org.dsa.service.QueueADT;
 import org.dsa.service.impl.ArrayDequeImpl;
 import org.dsa.service.impl.Josephus;
+import org.dsa.service.impl.LinkedDequeImpl;
 import org.dsa.service.impl.QueueImpl;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
@@ -53,11 +54,26 @@ public class Main {
         System.out.println("Third winner is " + Josephus.play(Josephus.buildQueue(a3), 7));
 
         testDeque();
+        testDequeListImpl();
     }
 
     private static void testDeque() throws IllegalAccessException {
         System.out.println("Array Based Implementation of Deque");
         Deque<String> deque = new ArrayDequeImpl<>(10);
+        System.out.println("size: " + deque.size() + " is Empty: " + deque.isEmpty());
+        deque.addFirst("Alice");
+        deque.addLast("Bob");
+        System.out.println("First: " + deque.first() + " Last: " + deque.last());
+        deque.addLast("Cindy");
+        deque.addFirst("Hope");
+        System.out.println("First Removed: " + deque.removeFirst() + " Last Removed: " + deque.removeLast());
+        deque.addFirst("Jack");
+        System.out.println("First Removed: " + deque.removeFirst() + " Last Removed: " + deque.removeLast());
+    }
+
+    private static void testDequeListImpl() throws IllegalAccessException {
+        System.out.println("Linked List Based Implementation of Deque");
+        Deque<String> deque = new LinkedDequeImpl<>();
         System.out.println("size: " + deque.size() + " is Empty: " + deque.isEmpty());
         deque.addFirst("Alice");
         deque.addLast("Bob");
