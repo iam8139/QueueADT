@@ -1,6 +1,7 @@
 package org.dsa;
 
 import org.dsa.service.QueueADT;
+import org.dsa.service.impl.Josephus;
 import org.dsa.service.impl.QueueImpl;
 
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
@@ -40,5 +41,13 @@ public class Main {
         System.out.println("dequeue: " + queueADT2.dequeue());
         System.out.println("size: " + queueADT2.size());
         System.out.println("first: " + queueADT2.first());
+
+        System.out.println("Playing Josephus Game");
+        String[] a1 = {"Alice", "Bob", "Cindy", "Doug", "Ed", "Fred"};
+        String[] a2 = {"Gene", "Hope", "Irene", "Jack", "Kim", "Lance"};
+        String[] a3 = {"Mike", "Roberto"};
+        System.out.println("First winner is " + Josephus.play(Josephus.buildQueue(a1), 3));
+        System.out.println("Second winner is " + Josephus.play(Josephus.buildQueue(a2), 10));
+        System.out.println("Third winner is " + Josephus.play(Josephus.buildQueue(a3), 7));
     }
 }
